@@ -3,8 +3,8 @@ import React from 'react';
 export default function Dashboard() {
     const activeProjects = [
         { id: 1, title: "Onyx Penthouse Facade", manager: "Zircon Structural", progress: 75, status: "Finishing Phase" },
-        { id: 2, title: "DHA Phase 6 Villa", manager: "Vertex Arc Studios", progress: 40, status: "Masonry Frame" },
-        { id: 3, title: "Gulberg Corporate Lounge", manager: "Matrix Smart Build", progress: 90, status: "Automation Setup" }
+        { id: 2, title: "Omaha West Hill Villa", manager: "Vertex Arc Studios", progress: 40, status: "Masonry Frame" },
+        { id: 3, title: "Wayne Corporate Lounge", manager: "Matrix Smart Build", progress: 90, status: "Automation Setup" }
     ];
 
     return (
@@ -50,7 +50,7 @@ export default function Dashboard() {
                     <div className="premium-card" style={{ padding: '25px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
                         <div style={{ fontSize: '13px', borderBottom: '1px solid rgba(255,255,255,0.02)', paddingBottom: '10px' }}>
                             <span style={{ color: 'var(--accent-brass)', display: 'block', fontSize: '10px' }}>SYSTEM ALERT // 10m ago</span>
-                            <p style={{ margin: '4px 0 0 0', color: 'var(--text-main)' }}>GET request processed for location radius Lahore.</p>
+                            <p style={{ margin: '4px 0 0 0', color: 'var(--text-main)' }}>GET request processed for location radius Nebraska.</p>
                         </div>
                         <div style={{ fontSize: '13px' }}>
                             <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '10px' }}>INVOICE PIPELINE // 2h ago</span>

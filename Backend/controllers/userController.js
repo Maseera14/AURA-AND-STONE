@@ -7,9 +7,9 @@ export const getDashboardMetrics = async (req, res) => {
     try {
         const computedMetrics = {
             activeWorkflowsCount: 3,
-            capitalUnderManagement: "PKR 1.2B+",
+            capitalUnderManagement: "$1.2B+",
             activeSystemAlerts: [
-                { id: 101, code: "GET_RADIUS_FILTER", description: "Telemetry index mapped to Lahore operations." },
+                { id: 101, code: "GET_RADIUS_FILTER", description: "Telemetry index mapped to Nebraska operations." },
                 { id: 102, code: "VALUATION_CALC_SYNC", description: "Bespoke Onyx system base matrices active." }
             ]
         };

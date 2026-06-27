@@ -15,10 +15,10 @@ export default function ProProfile({ proData, onNavigate }) {
         rating: 4.9,
         projectsCount: 54,
         specialty: "Brutalist Megastructures & Minimalist Villa Designs",
-        location: "Lahore, PK",
+        location: "Wayne, NE",
         startingBudget: 120000,
         sector: "Residential Megastructures",
-        bio: "Pioneering brutalist structures and ultra-minimalist residential facades across Pakistan. Focused on raw concrete materials, glass cantilevers, and structural integrity.",
+        bio: "Pioneering brutalist structures and ultra-minimalist residential facades across Nebraska. Focused on raw concrete materials, glass cantilevers, and high-precision structural integrity. Delivering iconic landmark residences.",
         image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
         gallery: [
             "Project Obsidian - Concrete Cantilever Villa",

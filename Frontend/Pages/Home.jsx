@@ -82,7 +82,7 @@ export default function Home({ onNavigate }) {
                             />
                         </div>
                         <div style={{ padding: '25px' }}>
-                            <span style={{ fontSize: '10px', color: 'var(--accent-brass)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Brutalist Residential // Lahore</span>
+                            <span style={{ fontSize: '10px', color: 'var(--accent-brass)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Brutalist Residential // Wayne, NE</span>
                             <h4 className="font-luxury" style={{ fontSize: '18px', color: '#fff', margin: '5px 0 12px 0' }}>The Concrete Monolith</h4>
                             <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: '1.7' }}>An exploration of raw concrete, dramatic glass cantilevers, and structural gravity-defying aesthetics engineered for luxury living.</p>
                         </div>
@@ -100,7 +100,7 @@ export default function Home({ onNavigate }) {
                             />
                         </div>
                         <div style={{ padding: '25px' }}>
-                            <span style={{ fontSize: '10px', color: 'var(--accent-brass)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Commercial Tower // Karachi</span>
+                            <span style={{ fontSize: '10px', color: 'var(--accent-brass)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Commercial Tower // Lincoln, NE</span>
                             <h4 className="font-luxury" style={{ fontSize: '18px', color: '#fff', margin: '5px 0 12px 0' }}>Imperial Heights</h4>
                             <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: '1.7' }}>State-of-the-art earthquake-resistant commercial megastructure detailed with custom-fabricated glass curtain walls.</p>
                         </div>
@@ -118,7 +118,7 @@ export default function Home({ onNavigate }) {
                             />
                         </div>
                         <div style={{ padding: '25px' }}>
-                            <span style={{ fontSize: '10px', color: 'var(--accent-brass)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Biophilic Design // Islamabad</span>
+                            <span style={{ fontSize: '10px', color: 'var(--accent-brass)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Biophilic Design // Omaha, NE</span>
                             <h4 className="font-luxury" style={{ fontSize: '18px', color: '#fff', margin: '5px 0 12px 0' }}>Zen Oasis Deck</h4>
                             <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: '1.7' }}>Bespoke stone patio installations integrated with infinity retaining pools and sustainable, zero-maintenance local flora.</p>
                         </div>
