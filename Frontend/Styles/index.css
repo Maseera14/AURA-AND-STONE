@@ -1,0 +1,88 @@
+/* src/styles/GlobalStyles.css */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+    --bg-primary: #0a0b0d;
+    /* Deep Premium Midnight Charcoal */
+    --bg-secondary: #121418;
+    /* Sleek Dark Layer Background */
+    --bg-glass: rgba(18, 20, 24, 0.7);
+    /* Luxury Glassmorphism Base */
+    --accent-brass: #d4af37;
+    /* Brushed Imperial Gold/Brass Accent */
+    --accent-muted: #aa8c2c;
+    /* Muted Gold for subtle states */
+    --text-main: #f3f4f6;
+    /* Soft Platinum White for readable text */
+    --text-muted: #9ca3af;
+    /* Elegant Muted Grey */
+    --border-glow: rgba(212, 175, 55, 0.15);
+    /* Soft premium border highlight */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+    letter-spacing: -0.01em;
+}
+
+h1,
+h2,
+h3,
+.font-luxury {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.03em;
+}
+
+/* Custom Scrollbar for Elite Feel */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-muted);
+    border-radius: 10px;
+}
+
+/* Smooth Background Transitions for GET requests loading */
+.fade-in-load {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Glassmorphic Cards Styling */
+.premium-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-card:hover {
+    border-color: var(--accent-brass);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.05);
+    transform: translateY(-4px);
+}
