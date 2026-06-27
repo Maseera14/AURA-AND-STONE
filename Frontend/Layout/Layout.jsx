@@ -3,93 +3,71 @@ import React, { useState, useEffect } from 'react';
 import '../Styles/index.css';
 
 // Reusable Inner Glass Navigation Component
-const Navbar = ({ currentPage, onNavigate }) => (
-    <nav style={{
-        position: 'fixed', top: 0, width: '100%', zIndex: 1000,
-        background: 'rgba(10, 11, 13, 0.75)', backdropFilter: 'blur(20px)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
-        padding: '20px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center'
-    }}>
-        <div 
-            className="font-luxury" 
-            onClick={() => onNavigate && onNavigate('home')}
-            style={{ fontSize: '20px', fontWeight: 'bold', color: 'var(--accent-brass)', cursor: 'pointer', transition: '0.3s' }}
-            onMouseOver={(e) => e.target.style.textShadow = '0 0 10px rgba(212,175,55,0.3)'}
-            onMouseOut={(e) => e.target.style.textShadow = 'none'}
-        >
-            AURA & STONE <span style={{ fontSize: '10px', color: 'var(--text-muted)' }}>PRO</span>
-        </div>
-        <div style={{ display: 'flex', gap: '30px', fontSize: '14px', alignItems: 'center' }}>
-            <span 
-                onClick={() => onNavigate && onNavigate('home')}
-                style={{ 
-                    color: currentPage === 'home' ? 'var(--accent-brass)' : 'var(--text-muted)', 
-                    textDecoration: 'none', cursor: 'pointer', transition: '0.3s' 
-                }}
-                onMouseOver={(e) => e.target.style.color = 'var(--accent-brass)'}
-                onMouseOut={(e) => e.target.style.color = currentPage === 'home' ? 'var(--accent-brass)' : 'var(--text-muted)'}
+const Navbar = ({ currentPage, onNavigate }) => {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    return (
+        <nav className="navbar-container">
+            <div 
+                className="font-luxury navbar-logo" 
+                onClick={() => { onNavigate && onNavigate('home'); setMobileMenuOpen(false); }}
             >
-                Home
-            </span>
-            <span 
-                onClick={() => onNavigate && onNavigate('browse')}
-                style={{ 
-                    color: currentPage === 'browse' ? 'var(--accent-brass)' : 'var(--text-main)', 
-                    textDecoration: 'none', cursor: 'pointer', transition: '0.3s' 
-                }}
-                onMouseOver={(e) => e.target.style.color = 'var(--accent-brass)'}
-                onMouseOut={(e) => e.target.style.color = currentPage === 'browse' ? 'var(--accent-brass)' : 'var(--text-main)'}
+                AURA & STONE <span className="logo-pro-tag">PRO</span>
+            </div>
+
+            {/* Hamburger Button for Mobile View */}
+            <div 
+                className="hamburger-menu-btn" 
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Toggle Navigation Menu"
             >
-                Browse Specialists
-            </span>
-            <span 
-                onClick={() => onNavigate && onNavigate('dashboard')}
-                style={{ 
-                    color: currentPage === 'dashboard' ? 'var(--accent-brass)' : 'var(--text-muted)', 
-                    textDecoration: 'none', cursor: 'pointer', transition: '0.3s' 
-                }}
-                onMouseOver={(e) => e.target.style.color = 'var(--accent-brass)'}
-                onMouseOut={(e) => e.target.style.color = currentPage === 'dashboard' ? 'var(--accent-brass)' : 'var(--text-muted)'}
-            >
-                Active Portfolios
-            </span>
-            <span 
-                onClick={() => onNavigate && onNavigate('pricing')}
-                style={{ 
-                    color: currentPage === 'pricing' ? 'var(--accent-brass)' : 'var(--text-muted)', 
-                    textDecoration: 'none', cursor: 'pointer', transition: '0.3s' 
-                }}
-                onMouseOver={(e) => e.target.style.color = 'var(--accent-brass)'}
-                onMouseOut={(e) => e.target.style.color = currentPage === 'pricing' ? 'var(--accent-brass)' : 'var(--text-muted)'}
-            >
-                Pricing Models
-            </span>
-            <span 
-                onClick={() => onNavigate && onNavigate('contact')}
-                style={{ 
-                    color: currentPage === 'contact' ? 'var(--accent-brass)' : 'var(--text-muted)', 
-                    textDecoration: 'none', cursor: 'pointer', transition: '0.3s' 
-                }}
-                onMouseOver={(e) => e.target.style.color = 'var(--accent-brass)'}
-                onMouseOut={(e) => e.target.style.color = currentPage === 'contact' ? 'var(--accent-brass)' : 'var(--text-muted)'}
-            >
-                Contact Us
-            </span>
-            <button 
-                onClick={() => onNavigate && onNavigate('contact')}
-                style={{
-                    background: 'transparent', border: '1px solid var(--accent-brass)',
-                    color: 'var(--accent-brass)', padding: '8px 20px', borderRadius: '2px', cursor: 'pointer',
-                    fontFamily: 'Cinzel', fontSize: '12px', transition: 'all 0.3s'
-                }} 
-                onMouseOver={(e) => e.target.style.background = 'rgba(212,175,55,0.1)'}
-                onMouseOut={(e) => e.target.style.background = 'transparent'}
-            >
-                INITIATE STREAM
-            </button>
-        </div>
-    </nav>
-);
+                <div className={`bar ${mobileMenuOpen ? 'open' : ''}`}></div>
+                <div className={`bar ${mobileMenuOpen ? 'open' : ''}`}></div>
+                <div className={`bar ${mobileMenuOpen ? 'open' : ''}`}></div>
+            </div>
+
+            {/* Navigation Links (Responsive Desktop/Mobile Drawer) */}
+            <div className={`navbar-links ${mobileMenuOpen ? 'mobile-open' : ''}`}>
+                <span 
+                    onClick={() => { onNavigate && onNavigate('home'); setMobileMenuOpen(false); }}
+                    className={`nav-link-item ${currentPage === 'home' ? 'active' : ''}`}
+                >
+                    Home
+                </span>
+                <span 
+                    onClick={() => { onNavigate && onNavigate('browse'); setMobileMenuOpen(false); }}
+                    className={`nav-link-item ${currentPage === 'browse' ? 'active' : ''}`}
+                >
+                    Browse Specialists
+                </span>
+                <span 
+                    onClick={() => { onNavigate && onNavigate('dashboard'); setMobileMenuOpen(false); }}
+                    className={`nav-link-item ${currentPage === 'dashboard' ? 'active' : ''}`}
+                >
+                    Active Portfolios
+                </span>
+                <span 
+                    onClick={() => { onNavigate && onNavigate('pricing'); setMobileMenuOpen(false); }}
+                    className={`nav-link-item ${currentPage === 'pricing' ? 'active' : ''}`}
+                >
+                    Pricing Models
+                </span>
+                <span 
+                    onClick={() => { onNavigate && onNavigate('contact'); setMobileMenuOpen(false); }}
+                    className={`nav-link-item ${currentPage === 'contact' ? 'active' : ''}`}
+                >
+                    Contact Us
+                </span>
+                <button 
+                    onClick={() => { onNavigate && onNavigate('contact'); setMobileMenuOpen(false); }}
+                    className="initiate-stream-btn"
+                >
+                    INITIATE STREAM
+                </button>
+            </div>
+        </nav>
+    );
+};
 
 // Reusable Minimal Footer
 const Footer = ({ onNavigate }) => (

@@ -36,7 +36,7 @@ export default function ProProfile({ proData, onNavigate }) {
     const galleryList = profile.gallery || [];
 
     return (
-        <div style={{ padding: '40px 50px 80px 50px', maxWidth: '1200px', margin: '0 auto', minHeight: '90vh' }}>
+        <div className="profile-container" style={{ padding: '40px 50px 80px 50px', maxWidth: '1200px', margin: '0 auto', minHeight: '90vh' }}>
             {/* Back Button */}
             <div style={{ marginBottom: '30px' }}>
                 <span 
@@ -71,17 +71,21 @@ export default function ProProfile({ proData, onNavigate }) {
                 }}
             >
                 {/* Banner Background */}
-                <div style={{
-                    position: 'absolute',
-                    top: 0, left: 0, right: 0, bottom: 0,
-                    backgroundImage: `linear-gradient(to right, rgba(10,11,13,0.95) 40%, rgba(10,11,13,0.3) 100%), url(${profile.image || 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    zIndex: 0
-                }} />
+                <div 
+                    className="profile-banner-bg"
+                    style={{
+                        position: 'absolute',
+                        top: 0, left: 0, right: 0, bottom: 0,
+                        backgroundImage: `linear-gradient(to right, rgba(10,11,13,0.95) 40%, rgba(10,11,13,0.3) 100%), url(${profile.image || 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'})`,
+                        '--bg-image': `url(${profile.image || 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        zIndex: 0
+                    }} 
+                />
 
                 {/* Content Overlay */}
-                <div style={{ padding: '60px 50px', position: 'relative', zIndex: 1, maxWidth: '800px' }}>
+                <div className="profile-banner-content" style={{ padding: '60px 50px', position: 'relative', zIndex: 1, maxWidth: '800px' }}>
                     <span style={{ 
                         background: 'rgba(212,175,55,0.1)', 
                         color: 'var(--accent-brass)', 
@@ -117,7 +121,7 @@ export default function ProProfile({ proData, onNavigate }) {
                 </div>
 
                 {/* Rating Badge */}
-                <div style={{ 
+                <div className="profile-rating-badge" style={{ 
                     position: 'absolute', 
                     top: '30px', 
                     right: '30px', 
@@ -135,11 +139,11 @@ export default function ProProfile({ proData, onNavigate }) {
 
             {/* Portfolio Grid & Metrics Row */}
             <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap' }}>
-                <div style={{ flex: '2 1 60%' }}>
+                <div style={{ flex: '2 1 60%', minWidth: '280px' }}>
                     <h3 className="font-luxury" style={{ fontSize: '20px', color: '#fff', marginBottom: '25px', letterSpacing: '2px' }}>
                         FEATURED EXHIBITS
                     </h3>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '25px' }}>
+                    <div className="profile-exhibits-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '25px' }}>
                         {galleryList.length === 0 ? (
                             <div style={{ color: 'var(--text-muted)', gridColumn: 'span 2', padding: '40px 0' }}>
                                 No portfolio assets loaded.

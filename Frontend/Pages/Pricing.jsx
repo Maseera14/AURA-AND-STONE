@@ -8,7 +8,7 @@ export default function Pricing() {
     ];
 
     return (
-        <div style={{ padding: '60px 50px', maxWidth: '1200px', margin: '0 auto', minHeight: '90vh' }}>
+        <div className="pricing-container" style={{ padding: '60px 50px', maxWidth: '1200px', margin: '0 auto', minHeight: '90vh' }}>
             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
                 <span style={{ color: 'var(--accent-brass)', fontSize: '11px', letterSpacing: '3px', textTransform: 'uppercase' }}>Subscription Model</span>
                 <h2 className="font-luxury" style={{ fontSize: '36px', color: '#fff', marginTop: '5px' }}>SOLUTIONS & SCALES</h2>

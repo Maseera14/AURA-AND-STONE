@@ -2,13 +2,13 @@ import React from 'react';
 
 export default function Home({ onNavigate }) {
     return (
-        <div style={{ padding: '80px 50px', display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: '90vh' }}>
+        <div className="home-container" style={{ padding: '80px 50px', display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: '90vh' }}>
             <div style={{ textAlign: 'center', maxWidth: '900px', marginBottom: '60px', marginTop: '40px' }}>
                 <span style={{ color: 'var(--accent-brass)', textTransform: 'uppercase', fontSize: '12px', letterSpacing: '5px', marginBottom: '25px', display: 'block' }}>
                     Aura & Stone Network
                 </span>
 
-                <h1 className="font-luxury" style={{ fontSize: '56px', fontWeight: '700', lineHeight: '1.15', margin: '0 0 30px 0', color: '#fff' }}>
+                <h1 className="font-luxury home-hero-title" style={{ fontSize: '56px', fontWeight: '700', lineHeight: '1.15', margin: '0 0 30px 0', color: '#fff' }}>
                     Where High-End Architecture Meets Structural Precision.
                 </h1>
 
@@ -16,7 +16,7 @@ export default function Home({ onNavigate }) {
                     An elite ecosystem for builders, contractors, and design professionals. Discover verified elite firms and high-end construction executors mapped through advanced telemetry.
                 </p>
 
-                <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
+                <div className="home-hero-buttons" style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
                     <button
                         onClick={() => onNavigate && onNavigate('browse')}
                         style={{
@@ -45,7 +45,7 @@ export default function Home({ onNavigate }) {
             </div>
 
             {/* Mini Micro-Stats Bar */}
-            <div style={{ display: 'flex', gap: '80px', flexWrap: 'wrap', justifyContent: 'center', width: '100%', maxWidth: '1000px', borderTop: '1px solid rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.03)', padding: '30px 0', margin: '40px 0 80px 0' }}>
+            <div className="home-stats-container" style={{ display: 'flex', gap: '80px', flexWrap: 'wrap', justifyContent: 'center', width: '100%', maxWidth: '1000px', borderTop: '1px solid rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.03)', padding: '30px 0', margin: '40px 0 80px 0' }}>
                 <div style={{ textAlign: 'center' }}>
                     <span style={{ display: 'block', fontSize: '28px', fontFamily: 'Cinzel', color: 'var(--accent-brass)', fontWeight: '600' }}>240+</span>
                     <span style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1.5px' }}>Elite Firms</span>
@@ -69,7 +69,7 @@ export default function Home({ onNavigate }) {
                     CURATED ARCHITECTURAL EXHIBITIONS
                 </h2>
                 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '30px' }}>
+                <div className="home-showcase-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '30px' }}>
                     {/* Project 1 */}
                     <div className="premium-card" style={{ overflow: 'hidden', borderRadius: '4px' }}>
                         <div style={{ height: '240px', overflow: 'hidden', position: 'relative' }}>

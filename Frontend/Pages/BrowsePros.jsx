@@ -50,11 +50,11 @@ export default function BrowsePros({ onNavigate, initialSector = "All Sectors" }
     };
 
     return (
-        <div style={{ padding: '40px 50px', minHeight: '100vh', maxWidth: '1400px', margin: '0 auto' }}>
+        <div className="browse-container" style={{ padding: '40px 50px', minHeight: '100vh', maxWidth: '1400px', margin: '0 auto' }}>
             <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap' }}>
 
                 {/* LEFT COLUMN */}
-                <div style={{ flex: '2 1 60%', minWidth: '350px' }}>
+                <div style={{ flex: '2 1 60%', minWidth: '280px' }}>
                     <div style={{ marginBottom: '30px' }}>
                         <span style={{ color: 'var(--accent-brass)', fontSize: '11px', letterSpacing: '3px', textTransform: 'uppercase' }}>
                             Bespoke Networking Pipeline
@@ -92,7 +92,7 @@ export default function BrowsePros({ onNavigate, initialSector = "All Sectors" }
                 </div>
 
                 {/* RIGHT COLUMN */}
-                <div style={{ flex: '1 1 30%', minWidth: '320px', display: 'flex', flexDirection: 'column', gap: '30px' }}>
+                <div style={{ flex: '1 1 30%', minWidth: '280px', display: 'flex', flexDirection: 'column', gap: '30px' }}>
                     <InteractiveMap currentZone={currentLocation} />
                     <QuoteEstimator />
                 </div>

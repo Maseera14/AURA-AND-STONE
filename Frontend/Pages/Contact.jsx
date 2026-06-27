@@ -9,7 +9,7 @@ export default function Contact() {
     };
 
     return (
-        <div style={{ padding: '60px 50px 100px 50px', maxWidth: '1200px', margin: '0 auto', minHeight: '90vh' }}>
+        <div className="contact-container" style={{ padding: '60px 50px 100px 50px', maxWidth: '1200px', margin: '0 auto', minHeight: '90vh' }}>
             <div style={{ textAlign: 'center', marginBottom: '50px' }}>
                 <span style={{ color: 'var(--accent-brass)', fontSize: '11px', letterSpacing: '3px', textTransform: 'uppercase' }}>Ingestion Node</span>
                 <h2 className="font-luxury" style={{ fontSize: '36px', color: '#fff', marginTop: '5px', marginBottom: '10px' }}>INITIATE PROJECT STREAM</h2>

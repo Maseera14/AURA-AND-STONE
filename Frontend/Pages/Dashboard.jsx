@@ -8,7 +8,7 @@ export default function Dashboard() {
     ];
 
     return (
-        <div style={{ padding: '60px 50px', maxWidth: '1400px', margin: '0 auto', minHeight: '90vh' }}>
+        <div className="dashboard-container" style={{ padding: '60px 50px', maxWidth: '1400px', margin: '0 auto', minHeight: '90vh' }}>
             <div style={{ marginBottom: '40px' }}>
                 <span style={{ color: 'var(--accent-brass)', fontSize: '11px', letterSpacing: '2px', textTransform: 'uppercase' }}>Management Control Console</span>
                 <h2 className="font-luxury" style={{ fontSize: '32px', color: '#fff', marginTop: '5px' }}>PROJECT BACKBONE</h2>
@@ -16,11 +16,11 @@ export default function Dashboard() {
 
             <div style={{ display: 'flex', gap: '30px', flexWrap: 'wrap' }}>
                 {/* Dynamic Project Streams */}
-                <div style={{ flex: '2 1 65%' }}>
+                <div style={{ flex: '2 1 65%', minWidth: '280px' }}>
                     <h3 className="font-luxury" style={{ fontSize: '18px', color: '#fff', marginBottom: '20px' }}>ACTIVE WORKFLOWS</h3>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                         {activeProjects.map((proj) => (
-                            <div key={proj.id} className="premium-card" style={{ padding: '25px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
+                            <div key={proj.id} className="premium-card dashboard-card" style={{ padding: '25px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
                                 <div>
                                     <h4 style={{ color: '#fff', margin: '0 0 5px 0', fontSize: '16px' }}>{proj.title}</h4>
                                     <span style={{ color: 'var(--text-muted)', fontSize: '12px' }}>Lead Firm: {proj.manager}</span>

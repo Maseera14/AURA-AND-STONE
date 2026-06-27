@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Privacy() {
     return (
-        <div style={{ padding: '60px 50px 100px 50px', maxWidth: '900px', margin: '0 auto', minHeight: '90vh' }}>
+        <div className="privacy-container" style={{ padding: '60px 50px 100px 50px', maxWidth: '900px', margin: '0 auto', minHeight: '90vh' }}>
             <div style={{ textAlign: 'center', marginBottom: '50px' }}>
                 <span style={{ color: 'var(--accent-brass)', fontSize: '11px', letterSpacing: '3px', textTransform: 'uppercase' }}>
                     Corporate Governance

@@ -12,7 +12,7 @@ export default function SearchBar({ onSearchSubmit }) {
     };
 
     return (
-        <form onSubmit={handleTrigger} className="premium-card" style={{
+        <form onSubmit={handleTrigger} className="premium-card search-bar-container" style={{
             padding: '15px 25px',
             borderRadius: '4px',
             margin: '30px auto',
@@ -38,7 +38,7 @@ export default function SearchBar({ onSearchSubmit }) {
                 />
             </div>
 
-            <div style={{ height: '40px', width: '1px', background: 'rgba(255,255,255,0.1)' }}></div>
+            <div className="search-bar-divider" style={{ height: '40px', width: '1px', background: 'rgba(255,255,255,0.1)' }}></div>
 
             <div style={{ flex: 2, textAlign: 'left' }}>
                 <span style={{ display: 'block', fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '4px', letterSpacing: '1px' }}>

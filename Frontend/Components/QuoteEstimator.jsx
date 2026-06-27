@@ -39,7 +39,7 @@ export default function QuoteEstimator() {
             {/* Finishing Material Quality Tier Selection */}
             <div style={{ marginBottom: '30px' }}>
                 <span style={{ display: 'block', fontSize: '12px', color: 'var(--text-muted)', marginBottom: '10px' }}>Material Execution Quality</span>
-                <div style={{ display: 'flex', gap: '10px' }}>
+                <div className="estimator-material-grid" style={{ display: 'flex', gap: '10px' }}>
                     {[
                         { label: 'Premium Slate', scale: 1.0 },
                         { label: 'Royal Imperial', scale: 1.5 },

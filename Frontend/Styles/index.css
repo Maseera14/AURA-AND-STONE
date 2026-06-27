@@ -86,3 +86,287 @@ h3,
     box-shadow: 0 10px 30px rgba(212, 175, 55, 0.05);
     transform: translateY(-4px);
 }
+
+/* ==========================================================================
+   MOBILE & RESPONSIVE DESIGN SYSTEM OVERRIDES
+   ========================================================================== */
+
+/* Responsive Paddings for Page Containers */
+.home-container,
+.browse-container,
+.pricing-container,
+.contact-container,
+.dashboard-container,
+.profile-container,
+.privacy-container {
+    transition: padding 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .home-container {
+        padding: 40px 20px !important;
+    }
+    .browse-container {
+        padding: 20px 15px !important;
+    }
+    .pricing-container {
+        padding: 40px 20px !important;
+    }
+    .contact-container {
+        padding: 40px 20px 60px 20px !important;
+    }
+    .dashboard-container {
+        padding: 40px 20px !important;
+    }
+    .profile-container {
+        padding: 20px 15px 40px 15px !important;
+    }
+    .privacy-container {
+        padding: 40px 20px 60px 20px !important;
+    }
+    
+    /* Global Typography & Font Size Adaptations */
+    h1, .home-hero-title {
+        font-size: 32px !important;
+        line-height: 1.25 !important;
+        margin-bottom: 20px !important;
+    }
+    h2 {
+        font-size: 24px !important;
+    }
+    h3 {
+        font-size: 18px !important;
+    }
+}
+
+/* Navbar Responsive Glass Drawer System */
+.navbar-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(10, 11, 13, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.navbar-logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--accent-brass);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.navbar-logo:hover {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.logo-pro-tag {
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+.navbar-links {
+    display: flex;
+    gap: 30px;
+    font-size: 14px;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.nav-link-item {
+    color: var(--text-muted);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.nav-link-item:hover, .nav-link-item.active {
+    color: var(--accent-brass);
+}
+
+.nav-link-item:nth-child(1) {
+    /* Home link inherits standard text-muted */
+}
+
+.nav-link-item:nth-child(2) {
+    /* For "Browse Specialists" which originally used var(--text-main) when inactive */
+    color: var(--text-main);
+}
+.nav-link-item:nth-child(2):hover, .nav-link-item:nth-child(2).active {
+    color: var(--accent-brass);
+}
+
+.initiate-stream-btn {
+    background: transparent;
+    border: 1px solid var(--accent-brass);
+    color: var(--accent-brass);
+    padding: 8px 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    transition: all 0.3s;
+}
+
+.initiate-stream-btn:hover {
+    background: rgba(212, 175, 55, 0.1);
+}
+
+/* Hamburger button styling */
+.hamburger-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22px;
+    height: 16px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger-menu-btn .bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-main);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hamburger transition to 'X' */
+.hamburger-menu-btn .bar.open:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.hamburger-menu-btn .bar.open:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu-btn .bar.open:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+    .navbar-container {
+        padding: 15px 20px;
+    }
+    
+    .hamburger-menu-btn {
+        display: flex;
+    }
+    
+    .navbar-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: rgba(10, 11, 13, 0.98);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 100px 40px 40px 40px;
+        gap: 25px;
+        z-index: 999;
+    }
+    
+    .navbar-links.mobile-open {
+        right: 0;
+    }
+    
+    .initiate-stream-btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+/* Search Bar Mobile Layout */
+.search-bar-container {
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .search-bar-container {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 15px !important;
+        padding: 20px 15px !important;
+    }
+    
+    .search-bar-divider {
+        display: none !important;
+    }
+    
+    .search-bar-container button {
+        width: 100% !important;
+        padding: 12px !important;
+    }
+}
+
+/* Home Buttons and Layout elements */
+@media (max-width: 480px) {
+    .home-hero-buttons {
+        flex-direction: column !important;
+        width: 100%;
+        gap: 12px !important;
+    }
+    .home-hero-buttons button {
+        width: 100% !important;
+        padding: 14px 20px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-stats-container {
+        gap: 30px 40px !important;
+        margin: 30px 0 50px 0 !important;
+        padding: 20px 0 !important;
+    }
+}
+
+/* Profile Banner overlay adjustments */
+@media (max-width: 768px) {
+    .profile-banner-bg {
+        background-image: linear-gradient(to bottom, rgba(10,11,13,0.95) 60%, rgba(10,11,13,0.4) 100%), var(--bg-image) !important;
+    }
+    .profile-banner-content {
+        padding: 40px 20px !important;
+    }
+    .profile-banner-content h1 {
+        font-size: 28px !important;
+    }
+    .profile-rating-badge {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        margin: 0 0 20px 20px !important;
+        display: inline-block !important;
+        width: fit-content !important;
+    }
+    .profile-exhibits-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Miscellaneous Map & Estimator Grid adjustments */
+@media (max-width: 480px) {
+    .map-nodes-container {
+        padding: 0 10px !important;
+    }
+    .estimator-material-grid {
+        flex-direction: column !important;
+        gap: 8px !important;
+    }
+    .dashboard-card {
+        padding: 15px !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+}

@@ -33,7 +33,7 @@ export default function InteractiveMap({ currentZone = "Wayne, NE" }) {
             </div>
 
             {/* Abstract Grid Grid Vector Map Area */}
-            <div style={{
+            <div className="map-nodes-container" style={{
                 height: '240px',
                 background: 'radial-gradient(circle at center, #16191f 0%, #0c0e12 100%)',
                 border: '1px solid rgba(255,255,255,0.03)',
