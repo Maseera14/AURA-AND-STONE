@@ -13,13 +13,15 @@ import './Styles/index.css';
 export default function App() {
     const [currentPage, setCurrentPage] = useState('home');
     const [selectedPro, setSelectedPro] = useState(null);
+    const [initialSector, setInitialSector] = useState("All Sectors");
 
-    const handleNavigate = (page, proData = null) => {
+    const handleNavigate = (page, proData = null, sector = "All Sectors") => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         setCurrentPage(page);
         if (proData) {
             setSelectedPro(proData);
         }
+        setInitialSector(sector);
     };
 
     const renderPage = () => {
@@ -27,7 +29,7 @@ export default function App() {
             case 'home':
                 return <Home onNavigate={handleNavigate} />;
             case 'browse':
-                return <BrowsePros onNavigate={handleNavigate} />;
+                return <BrowsePros onNavigate={handleNavigate} initialSector={initialSector} />;
             case 'pricing':
                 return <Pricing onNavigate={handleNavigate} />;
             case 'contact':

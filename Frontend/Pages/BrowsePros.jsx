@@ -5,11 +5,11 @@ import FilterDropdown from '../Components/FilterDropdown';
 import InteractiveMap from '../Components/InteractiveMap';
 import QuoteEstimator from '../Components/QuoteEstimator';
 
-export default function BrowsePros({ onNavigate }) {
+export default function BrowsePros({ onNavigate, initialSector = "All Sectors" }) {
     const [filteredPros, setFilteredPros] = useState([]);
     const [isSearching, setIsSearching] = useState(false);
     const [currentLocation, setCurrentLocation] = useState("Wayne, NE");
-    const [activeSector, setActiveSector] = useState("All Sectors");
+    const [activeSector, setActiveSector] = useState(initialSector);
 
     // Core API Fetch Execution (Connecting to port 5000)
     const fetchProfessionalsFromAPI = async (locationContext = "", keywordContext = "", sectorContext = "") => {
@@ -35,8 +35,9 @@ export default function BrowsePros({ onNavigate }) {
 
     // Initial stream loader hook trigger
     useEffect(() => {
-        fetchProfessionalsFromAPI(currentLocation, "", activeSector);
-    }, []);
+        setActiveSector(initialSector);
+        fetchProfessionalsFromAPI(currentLocation, "", initialSector);
+    }, [initialSector]);
 
     const handleSearchExecution = ({ location, keyword }) => {
         setCurrentLocation(location || "Wayne, NE");

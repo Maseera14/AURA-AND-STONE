@@ -125,6 +125,84 @@ export default function Home({ onNavigate }) {
                     </div>
                 </div>
             </div>
+
+            {/* Architectural Classes Showcase Grid */}
+            <div style={{ width: '100%', maxWidth: '1200px', textAlign: 'left', marginTop: '100px', marginBottom: '20px' }}>
+                <span style={{ color: 'var(--accent-brass)', textTransform: 'uppercase', fontSize: '11px', letterSpacing: '3px', display: 'block', marginBottom: '10px' }}>
+                    Architectural Index Categories
+                </span>
+                <h2 className="font-luxury" style={{ fontSize: '32px', color: '#fff', marginBottom: '40px', letterSpacing: '2px' }}>
+                    EXPLORE BY ARCHITECTURAL CLASS
+                </h2>
+                
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '20px' }}>
+                    {[
+                        {
+                            name: "Residential Megastructures",
+                            image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80",
+                            desc: "Brutalist villas, luxury estates, and custom residential facades."
+                        },
+                        {
+                            name: "Commercial High-Rise",
+                            image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
+                            desc: "Corporate headquarters, glass towers, and office facilities."
+                        },
+                        {
+                            name: "Heritage Restoration",
+                            image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80",
+                            desc: "Colonial facades, historic masonry, and stone arch preservation."
+                        },
+                        {
+                            name: "Sustainable/Green Architecture",
+                            image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80",
+                            desc: "Net-zero emissions structures, green framing, and solar panels."
+                        },
+                        {
+                            name: "Bespoke Landscape Design",
+                            image: "https://images.unsplash.com/photo-1558603668-6570496b66f8?auto=format&fit=crop&w=600&q=80",
+                            desc: "Infinity pools, stone deck courtyards, and natural biophilic designs."
+                        }
+                    ].map((cls, idx) => (
+                        <div 
+                            key={idx} 
+                            className="premium-card" 
+                            onClick={() => onNavigate && onNavigate('browse', null, cls.name)}
+                            style={{ 
+                                borderRadius: '4px', 
+                                overflow: 'hidden', 
+                                cursor: 'pointer',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                height: '290px',
+                                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
+                            }}
+                        >
+                            <div style={{ height: '130px', overflow: 'hidden', position: 'relative' }}>
+                                <img 
+                                    src={cls.image} 
+                                    alt={cls.name} 
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)' }}
+                                    onMouseOver={(e)=>e.target.style.transform='scale(1.08)'}
+                                    onMouseOut={(e)=>e.target.style.transform='scale(1)'}
+                                />
+                            </div>
+                            <div style={{ padding: '15px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                                <div>
+                                    <h4 className="font-luxury" style={{ color: '#fff', fontSize: '13px', margin: '0 0 8px 0', letterSpacing: '1px', textTransform: 'uppercase' }}>
+                                        {cls.name}
+                                    </h4>
+                                    <p style={{ color: 'var(--text-muted)', fontSize: '11px', lineHeight: '1.5' }}>
+                                        {cls.desc}
+                                    </p>
+                                </div>
+                                <span style={{ color: 'var(--accent-brass)', fontSize: '10px', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 'bold', display: 'block', marginTop: '10px' }}>
+                                    EXPLORE CLASS →
+                                </span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
     );
 }
