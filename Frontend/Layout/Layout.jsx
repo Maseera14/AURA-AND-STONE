@@ -21,6 +21,17 @@ const Navbar = ({ currentPage, onNavigate }) => (
         </div>
         <div style={{ display: 'flex', gap: '30px', fontSize: '14px', alignItems: 'center' }}>
             <span 
+                onClick={() => onNavigate && onNavigate('home')}
+                style={{ 
+                    color: currentPage === 'home' ? 'var(--accent-brass)' : 'var(--text-muted)', 
+                    textDecoration: 'none', cursor: 'pointer', transition: '0.3s' 
+                }}
+                onMouseOver={(e) => e.target.style.color = 'var(--accent-brass)'}
+                onMouseOut={(e) => e.target.style.color = currentPage === 'home' ? 'var(--accent-brass)' : 'var(--text-muted)'}
+            >
+                Home
+            </span>
+            <span 
                 onClick={() => onNavigate && onNavigate('browse')}
                 style={{ 
                     color: currentPage === 'browse' ? 'var(--accent-brass)' : 'var(--text-main)', 
