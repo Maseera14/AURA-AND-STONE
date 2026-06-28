@@ -160,9 +160,8 @@ const Navbar = ({ currentPage, onNavigate, onToggleSidebar }) => {
                 <span 
                     onClick={() => { onToggleSidebar && onToggleSidebar(); setMobileMenuOpen(false); }}
                     className="nav-link-item"
-                    style={{ color: 'var(--accent-brass)', fontWeight: '600', letterSpacing: '0.5px' }}
                 >
-                    ✦ PORTFOLIO INDEX
+                    Portfolio Index
                 </span>
                 <span 
                     onClick={() => { onNavigate && onNavigate('dashboard'); setMobileMenuOpen(false); }}
