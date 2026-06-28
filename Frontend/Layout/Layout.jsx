@@ -124,34 +124,78 @@ const ThemeSwitcher = ({ theme, onChangeTheme }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     
     const themes = [
-        { id: 'dark', label: 'Dark Mode', dotColor: '#0a0b0d' },
-        { id: 'light', label: 'Light Mode', dotColor: '#ffffff' },
-        { id: 'vintage', label: 'Vintage Mode', dotColor: '#a0522d' }
+        { 
+            id: 'dark', 
+            label: 'Dark', 
+            icon: (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transition: 'all 0.3s' }}>
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            )
+        },
+        { 
+            id: 'light', 
+            label: 'Light', 
+            icon: (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transition: 'all 0.3s' }}>
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            )
+        },
+        { 
+            id: 'vintage', 
+            label: 'Vintage', 
+            icon: (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transition: 'all 0.3s' }}>
+                    <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+                    <line x1="16" y1="8" x2="2" y2="22"></line>
+                    <line x1="17.5" y1="15" x2="9" y2="15"></line>
+                </svg>
+            )
+        }
     ];
+
+    const activeThemeObj = themes.find(t => t.id === theme) || themes[0];
     
     return (
         <div style={{ position: 'relative', display: 'inline-block' }}>
             <button 
                 onClick={() => setDropdownOpen(!dropdownOpen)}
                 style={{
-                    background: 'transparent',
+                    background: 'var(--bg-glass)',
                     border: '1px solid var(--border-glow)',
-                    color: 'var(--text-main)',
-                    padding: '8px 14px',
-                    fontSize: '11px',
-                    fontFamily: 'Cinzel',
-                    letterSpacing: '1px',
+                    color: 'var(--accent-brass)',
+                    width: '38px',
+                    height: '38px',
+                    borderRadius: '50%',
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '8px',
-                    textTransform: 'uppercase',
-                    transition: 'all 0.3s'
+                    justifyContent: 'center',
+                    transition: 'all 0.3s ease',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.15)',
+                    padding: 0,
+                    outline: 'none'
                 }}
-                onMouseOver={(e) => e.target.style.borderColor = 'var(--accent-brass)'}
-                onMouseOut={(e) => e.target.style.borderColor = 'var(--border-glow)'}
+                onMouseOver={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--accent-brass)';
+                    e.currentTarget.style.transform = 'scale(1.05)';
+                }}
+                onMouseOut={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--border-glow)';
+                    e.currentTarget.style.transform = 'scale(1)';
+                }}
+                aria-label="Toggle Theme Menu"
             >
-                🎨 {theme} ▾
+                {activeThemeObj.icon}
             </button>
             
             {dropdownOpen && (
@@ -165,13 +209,14 @@ const ThemeSwitcher = ({ theme, onChangeTheme }) => {
                         position: 'absolute',
                         top: '100%',
                         right: 0,
-                        marginTop: '8px',
+                        marginTop: '10px',
                         background: 'var(--bg-secondary)',
-                        border: '1px solid var(--accent-brass)',
-                        boxShadow: '0 10px 25px rgba(0,0,0,0.5)',
+                        border: '1px solid var(--border-glow)',
+                        boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
+                        backdropFilter: 'blur(15px)',
                         zIndex: 10000,
-                        minWidth: '140px',
-                        borderRadius: '2px',
+                        minWidth: '130px',
+                        borderRadius: '6px',
                         padding: '6px 0',
                     }}>
                         {themes.map((t) => (
@@ -185,6 +230,8 @@ const ThemeSwitcher = ({ theme, onChangeTheme }) => {
                                     padding: '10px 16px',
                                     fontSize: '11px',
                                     fontFamily: 'Cinzel',
+                                    letterSpacing: '1px',
+                                    textTransform: 'uppercase',
                                     cursor: 'pointer',
                                     color: theme === t.id ? 'var(--accent-brass)' : 'var(--text-main)',
                                     background: theme === t.id ? 'rgba(212, 175, 55, 0.05)' : 'transparent',
@@ -194,22 +241,15 @@ const ThemeSwitcher = ({ theme, onChangeTheme }) => {
                                     transition: 'all 0.2s'
                                 }}
                                 onMouseOver={(e) => {
-                                    e.target.style.background = 'rgba(212, 175, 55, 0.08)';
-                                    e.target.style.color = 'var(--accent-brass)';
+                                    e.currentTarget.style.background = 'rgba(212, 175, 55, 0.08)';
+                                    e.currentTarget.style.color = 'var(--accent-brass)';
                                 }}
                                 onMouseOut={(e) => {
-                                    e.target.style.background = theme === t.id ? 'rgba(212, 175, 55, 0.05)' : 'transparent';
-                                    e.target.style.color = theme === t.id ? 'var(--accent-brass)' : 'var(--text-main)';
+                                    e.currentTarget.style.background = theme === t.id ? 'rgba(212, 175, 55, 0.05)' : 'transparent';
+                                    e.currentTarget.style.color = theme === t.id ? 'var(--accent-brass)' : 'var(--text-main)';
                                 }}
                             >
-                                <span style={{
-                                    width: '8px',
-                                    height: '8px',
-                                    borderRadius: '50%',
-                                    background: t.dotColor,
-                                    border: '1px solid rgba(255,255,255,0.2)',
-                                    display: 'inline-block'
-                                }} />
+                                <span style={{ display: 'flex', alignItems: 'center', color: 'inherit' }}>{t.icon}</span>
                                 {t.label}
                             </div>
                         ))}
