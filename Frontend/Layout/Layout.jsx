@@ -119,8 +119,109 @@ const Sidebar = ({ isOpen, onClose, professionals, onNavigate }) => {
     );
 };
 
+// Reusable Theme Switcher Component
+const ThemeSwitcher = ({ theme, onChangeTheme }) => {
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    
+    const themes = [
+        { id: 'dark', label: 'Dark Mode', dotColor: '#0a0b0d' },
+        { id: 'light', label: 'Light Mode', dotColor: '#ffffff' },
+        { id: 'vintage', label: 'Vintage Mode', dotColor: '#a0522d' }
+    ];
+    
+    return (
+        <div style={{ position: 'relative', display: 'inline-block' }}>
+            <button 
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                style={{
+                    background: 'transparent',
+                    border: '1px solid var(--border-glow)',
+                    color: 'var(--text-main)',
+                    padding: '8px 14px',
+                    fontSize: '11px',
+                    fontFamily: 'Cinzel',
+                    letterSpacing: '1px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    textTransform: 'uppercase',
+                    transition: 'all 0.3s'
+                }}
+                onMouseOver={(e) => e.target.style.borderColor = 'var(--accent-brass)'}
+                onMouseOut={(e) => e.target.style.borderColor = 'var(--border-glow)'}
+            >
+                🎨 {theme} ▾
+            </button>
+            
+            {dropdownOpen && (
+                <>
+                    <div 
+                        style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 9999 }} 
+                        onClick={() => setDropdownOpen(false)}
+                    />
+                    
+                    <div style={{
+                        position: 'absolute',
+                        top: '100%',
+                        right: 0,
+                        marginTop: '8px',
+                        background: 'var(--bg-secondary)',
+                        border: '1px solid var(--accent-brass)',
+                        boxShadow: '0 10px 25px rgba(0,0,0,0.5)',
+                        zIndex: 10000,
+                        minWidth: '140px',
+                        borderRadius: '2px',
+                        padding: '6px 0',
+                    }}>
+                        {themes.map((t) => (
+                            <div
+                                key={t.id}
+                                onClick={() => {
+                                    onChangeTheme(t.id);
+                                    setDropdownOpen(false);
+                                }}
+                                style={{
+                                    padding: '10px 16px',
+                                    fontSize: '11px',
+                                    fontFamily: 'Cinzel',
+                                    cursor: 'pointer',
+                                    color: theme === t.id ? 'var(--accent-brass)' : 'var(--text-main)',
+                                    background: theme === t.id ? 'rgba(212, 175, 55, 0.05)' : 'transparent',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '10px',
+                                    transition: 'all 0.2s'
+                                }}
+                                onMouseOver={(e) => {
+                                    e.target.style.background = 'rgba(212, 175, 55, 0.08)';
+                                    e.target.style.color = 'var(--accent-brass)';
+                                }}
+                                onMouseOut={(e) => {
+                                    e.target.style.background = theme === t.id ? 'rgba(212, 175, 55, 0.05)' : 'transparent';
+                                    e.target.style.color = theme === t.id ? 'var(--accent-brass)' : 'var(--text-main)';
+                                }}
+                            >
+                                <span style={{
+                                    width: '8px',
+                                    height: '8px',
+                                    borderRadius: '50%',
+                                    background: t.dotColor,
+                                    border: '1px solid rgba(255,255,255,0.2)',
+                                    display: 'inline-block'
+                                }} />
+                                {t.label}
+                            </div>
+                        ))}
+                    </div>
+                </>
+            )}
+        </div>
+    );
+};
+
 // Reusable Inner Glass Navigation Component
-const Navbar = ({ currentPage, onNavigate, onToggleSidebar }) => {
+const Navbar = ({ currentPage, onNavigate, onToggleSidebar, theme, onChangeTheme }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
@@ -130,17 +231,6 @@ const Navbar = ({ currentPage, onNavigate, onToggleSidebar }) => {
                 onClick={() => { onNavigate && onNavigate('home'); setMobileMenuOpen(false); }}
             >
                 AURA & STONE <span className="logo-pro-tag">PRO</span>
-            </div>
-
-            {/* Hamburger Button for Mobile View */}
-            <div 
-                className="hamburger-menu-btn" 
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                aria-label="Toggle Navigation Menu"
-            >
-                <div className={`bar ${mobileMenuOpen ? 'open' : ''}`}></div>
-                <div className={`bar ${mobileMenuOpen ? 'open' : ''}`}></div>
-                <div className={`bar ${mobileMenuOpen ? 'open' : ''}`}></div>
             </div>
 
             {/* Navigation Links (Responsive Desktop/Mobile Drawer) */}
@@ -188,6 +278,22 @@ const Navbar = ({ currentPage, onNavigate, onToggleSidebar }) => {
                     INITIATE STREAM
                 </button>
             </div>
+
+            {/* Right Side Actions: Theme Selector & Hamburger Button */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px', zIndex: 1002 }}>
+                <ThemeSwitcher theme={theme} onChangeTheme={onChangeTheme} />
+                
+                <div 
+                    className="hamburger-menu-btn" 
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    aria-label="Toggle Navigation Menu"
+                    style={{ margin: 0 }}
+                >
+                    <div className={`bar ${mobileMenuOpen ? 'open' : ''}`}></div>
+                    <div className={`bar ${mobileMenuOpen ? 'open' : ''}`}></div>
+                    <div className={`bar ${mobileMenuOpen ? 'open' : ''}`}></div>
+                </div>
+            </div>
         </nav>
     );
 };
@@ -223,6 +329,14 @@ export default function Layout({ children, currentPage, onNavigate }) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [professionals, setProfessionals] = useState([]);
+    const [theme, setTheme] = useState(() => {
+        return localStorage.getItem('aura-stone-theme') || 'dark';
+    });
+
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('aura-stone-theme', theme);
+    }, [theme]);
 
     useEffect(() => {
         setIsLoaded(true);
@@ -250,11 +364,11 @@ export default function Layout({ children, currentPage, onNavigate }) {
             {/* Background Decorative Ambient Glows */}
             <div style={{
                 position: 'absolute', top: '10%', left: '70%', width: '400px', height: '400px',
-                background: 'rgba(212, 175, 55, 0.03)', filter: 'blur(150px)', pointerEvents: 'none', zIndex: 0
+                background: 'var(--glow-color)', filter: 'blur(150px)', pointerEvents: 'none', zIndex: 0
             }} />
             <div style={{
                 position: 'absolute', top: '60%', left: '-10%', width: '500px', height: '500px',
-                background: 'rgba(30, 40, 60, 0.2)', filter: 'blur(180px)', pointerEvents: 'none', zIndex: 0
+                background: 'var(--glow-color-secondary)', filter: 'blur(180px)', pointerEvents: 'none', zIndex: 0
             }} />
 
             <Sidebar 
@@ -268,6 +382,8 @@ export default function Layout({ children, currentPage, onNavigate }) {
                 currentPage={currentPage} 
                 onNavigate={onNavigate} 
                 onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} 
+                theme={theme}
+                onChangeTheme={setTheme}
             />
 
             <main key={currentPage} className={isLoaded ? 'fade-in-load' : ''} style={{
