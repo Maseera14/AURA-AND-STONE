@@ -31,14 +31,15 @@
     --bg-primary: #150d0a;
     --bg-secondary: #22140e;
     --bg-glass: rgba(34, 20, 14, 0.85);
-    --accent-brass: #d4af37; /* Polished gold on dark wood */
-    --accent-muted: #b08d24;
+    --accent-brass: #c9803b; /* Warm Antique Copper-Amber */
+    --accent-muted: #965720; /* Muted Sienna Bronze */
     --text-main: #fcf8f2; /* Warm white/cream */
     --text-muted: #c2b0a3;
-    --border-glow: rgba(212, 175, 55, 0.2);
-    --glow-color: rgba(212, 175, 55, 0.05);
-    --glow-color-secondary: rgba(212, 175, 55, 0.02);
+    --border-glow: rgba(201, 128, 59, 0.2);
+    --glow-color: rgba(201, 128, 59, 0.05);
+    --glow-color-secondary: rgba(201, 128, 59, 0.02);
 }
+
 
 [data-theme="vintage"] body {
     background-image: linear-gradient(rgba(21, 13, 10, 0.88), rgba(21, 13, 10, 0.94)), url('https://images.unsplash.com/photo-1588854337236-6889d631faa8?auto=format&fit=crop&w=1920&q=80');
