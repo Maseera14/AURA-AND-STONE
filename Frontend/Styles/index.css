@@ -48,20 +48,34 @@
     background-repeat: no-repeat;
 }
 
+[data-theme="light"] body {
+    background-image: linear-gradient(rgba(245, 246, 248, 0.92), rgba(245, 246, 248, 0.96)), url('https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
 /* Dynamic theme overrides for hardcoded white color strings */
-[data-theme="light"] [style*="color: rgb(255, 255, 255)"],
-[data-theme="light"] [style*="color: #fff"],
-[data-theme="light"] [style*="color: #ffffff"],
-[data-theme="light"] [style*="color:#fff"],
-[data-theme="light"] [style*="color:#ffffff"] {
+[data-theme="light"] [style*="rgb(255,255,255)"],
+[data-theme="light"] [style*="rgb(255, 255, 255)"],
+[data-theme="light"] [style*="color: white"],
+[data-theme="light"] [style*="color:white"],
+[data-theme="light"] [style*="#fff"],
+[data-theme="light"] [style*="#ffffff"],
+[data-theme="light"] [style*="#FFF"],
+[data-theme="light"] [style*="#FFFFFF"] {
     color: var(--text-main) !important;
 }
 
-[data-theme="vintage"] [style*="color: rgb(255, 255, 255)"],
-[data-theme="vintage"] [style*="color: #fff"],
-[data-theme="vintage"] [style*="color: #ffffff"],
-[data-theme="vintage"] [style*="color:#fff"],
-[data-theme="vintage"] [style*="color:#ffffff"] {
+[data-theme="vintage"] [style*="rgb(255,255,255)"],
+[data-theme="vintage"] [style*="rgb(255, 255, 255)"],
+[data-theme="vintage"] [style*="color: white"],
+[data-theme="vintage"] [style*="color:white"],
+[data-theme="vintage"] [style*="#fff"],
+[data-theme="vintage"] [style*="#ffffff"],
+[data-theme="vintage"] [style*="#FFF"],
+[data-theme="vintage"] [style*="#FFFFFF"] {
     color: var(--text-main) !important;
 }
 
@@ -90,6 +104,25 @@
 [data-theme="vintage"] input::placeholder,
 [data-theme="vintage"] textarea::placeholder {
     color: #8b7d70 !important;
+}
+
+/* Heading color overrides for light and vintage themes */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6 {
+    color: var(--text-main) !important;
+}
+
+[data-theme="vintage"] h1,
+[data-theme="vintage"] h2,
+[data-theme="vintage"] h3,
+[data-theme="vintage"] h4,
+[data-theme="vintage"] h5,
+[data-theme="vintage"] h6 {
+    color: var(--text-main) !important;
 }
 
 /* Active navigation link and list indicator styling overrides */
@@ -240,10 +273,10 @@ h3,
     top: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(10, 11, 13, 0.75);
+    background: var(--bg-glass);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--border-glow);
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
