@@ -58,7 +58,7 @@
 }
 
 [data-theme="dark"] body {
-    background-image: linear-gradient(rgba(10, 11, 13, 0.82), rgba(10, 11, 13, 0.88)), url('https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=1920&q=80');
+    background-image: linear-gradient(rgba(10, 11, 13, 0.82), rgba(10, 11, 13, 0.88)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -165,7 +165,7 @@ html, body {
 
 body {
     background-color: var(--bg-primary);
-    background-image: linear-gradient(rgba(10, 11, 13, 0.82), rgba(10, 11, 13, 0.88)), url('https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=1920&q=80');
+    background-image: linear-gradient(rgba(10, 11, 13, 0.82), rgba(10, 11, 13, 0.88)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
