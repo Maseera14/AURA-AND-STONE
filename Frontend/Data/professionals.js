@@ -110,7 +110,7 @@ export const professionals = [
         startingBudget: 80000,
         sector: "Sustainable/Green Architecture",
         bio: "Integrating nature directly into corporate and residential layouts, featuring active green rooftops and engineered glue-laminated wood beams.",
-        image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80",
         gallery: [
             "Laminated Timber Pavilion - Living Roof",
             "Greenhouse Office Expansion - Active Biophilic Filtration"
