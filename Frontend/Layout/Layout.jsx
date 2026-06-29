@@ -1,76 +1,8 @@
 // src/layouts/Layout.jsx
 import React, { useState, useEffect } from 'react';
+import { professionals as localProfessionals } from '../Data/professionals.js';
 import '../Styles/index.css';
 
-// Fallback high-tier professional database for offline/zero-config startup
-const fallbackProfessionals = [
-    {
-        id: 1,
-        name: "Vertex Arc Studios",
-        rating: 4.9,
-        projectsCount: 54,
-        specialty: "Brutalist Megastructures & Minimalist Villa Designs",
-        location: "Wayne, NE",
-        startingBudget: 120000,
-        sector: "Residential Megastructures",
-        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-        id: 2,
-        name: "Nebraska Eco-Framing Co.",
-        rating: 4.7,
-        projectsCount: 29,
-        specialty: "High-Tier Sustainable Residential Builds",
-        location: "Omaha, NE",
-        startingBudget: 65000,
-        sector: "Sustainable/Green Architecture",
-        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-        id: 3,
-        name: "Midwest Steel & Tower",
-        rating: 5.0,
-        projectsCount: 42,
-        specialty: "Commercial High-Rise & Heavy Steel Framing",
-        location: "Lincoln, NE",
-        startingBudget: 350000,
-        sector: "Commercial High-Rise",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-        id: 4,
-        name: "Heritage Builders NE",
-        rating: 4.8,
-        projectsCount: 31,
-        specialty: "Heritage Conservation & Historic Building Restorations",
-        location: "Norfolk, NE",
-        startingBudget: 150000,
-        sector: "Heritage Restoration",
-        image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-        id: 5,
-        name: "Prairie Landscape Architects",
-        rating: 4.6,
-        projectsCount: 18,
-        specialty: "Bespoke Biophilic Gardens & Outdoor Retaining Pools",
-        location: "Wayne, NE",
-        startingBudget: 45000,
-        sector: "Bespoke Landscape Design",
-        image: "https://images.unsplash.com/photo-1558603668-6570496b66f8?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-        id: 6,
-        name: "Sharp Construction Inc.",
-        rating: 4.9,
-        projectsCount: 42,
-        specialty: "Premium Structural Framing & Commercial Assets",
-        location: "Wayne, NE",
-        startingBudget: 55000,
-        sector: "Residential Megastructures",
-        image: "https://images.unsplash.com/photo-1503387762-592ded58c45a?auto=format&fit=crop&w=800&q=80",
-    }
-];
 
 // Reusable Portfolio Sidebar Drawer Component
 const Sidebar = ({ isOpen, onClose, professionals, onNavigate }) => {
@@ -368,7 +300,7 @@ const Footer = ({ onNavigate }) => (
 export default function Layout({ children, currentPage, onNavigate }) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [professionals, setProfessionals] = useState([]);
+    const [professionals, setProfessionals] = useState(localProfessionals);
     const [theme, setTheme] = useState(() => {
         return localStorage.getItem('aura-stone-theme') || 'dark';
     });
@@ -380,24 +312,7 @@ export default function Layout({ children, currentPage, onNavigate }) {
 
     useEffect(() => {
         setIsLoaded(true);
-
-        const fetchPros = async () => {
-            try {
-                const response = await fetch('http://localhost:5000/api/v1/professionals');
-                const payload = await response.json();
-                if (payload.success && payload.data && payload.data.length > 0) {
-                    setProfessionals(payload.data);
-                } else {
-                    setProfessionals(fallbackProfessionals);
-                }
-            } catch (error) {
-                console.warn("Sidebar professionals fetch failed, using fallback:", error);
-                setProfessionals(fallbackProfessionals);
-            }
-        };
-
-        fetchPros();
-    }, [currentPage]); // Re-trigger fade-in and update list on page transitions
+    }, [currentPage]); // Re-trigger fade-in on page transitions
 
     return (
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', position: 'relative', overflowX: 'hidden', width: '100%' }}>

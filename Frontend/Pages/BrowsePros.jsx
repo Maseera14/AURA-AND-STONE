@@ -4,49 +4,58 @@ import ProCard from '../Components/ProCard';
 import FilterDropdown from '../Components/FilterDropdown';
 import InteractiveMap from '../Components/InteractiveMap';
 import QuoteEstimator from '../Components/QuoteEstimator';
+import { professionals as localProfessionals } from '../Data/professionals.js';
 
 export default function BrowsePros({ onNavigate, initialSector = "All Sectors" }) {
-    const [filteredPros, setFilteredPros] = useState([]);
-    const [isSearching, setIsSearching] = useState(false);
+    const [filteredPros, setFilteredPros] = useState(localProfessionals);
     const [currentLocation, setCurrentLocation] = useState("Wayne, NE");
     const [activeSector, setActiveSector] = useState(initialSector);
+    const [searchKeyword, setSearchKeyword] = useState("");
 
-    // Core API Fetch Execution (Connecting to port 5000)
-    const fetchProfessionalsFromAPI = async (locationContext = "", keywordContext = "", sectorContext = "") => {
-        setIsSearching(true);
-        try {
-            let url = `http://localhost:5000/api/v1/professionals?location=${locationContext}&keyword=${keywordContext}`;
-            if (sectorContext && sectorContext !== 'All Sectors') {
-                url += `&sector=${sectorContext}`;
-            }
+    // Offline filter execution
+    const filterProfessionals = (locationContext = "Wayne, NE", keywordContext = "", sectorContext = "All Sectors") => {
+        let result = [...localProfessionals];
 
-            const response = await fetch(url);
-            const payload = await response.json();
-
-            if (payload.success) {
-                setFilteredPros(payload.data);
-            }
-        } catch (error) {
-            console.error("API Fetch Integration Crash:", error);
-        } finally {
-            setIsSearching(false);
+        // 1. Filter by location (case-insensitive substring match)
+        if (locationContext) {
+            const locNorm = locationContext.toLowerCase().trim();
+            result = result.filter(pro => pro.location.toLowerCase().includes(locNorm));
         }
+
+        // 2. Filter by sector
+        if (sectorContext && sectorContext !== 'All Sectors') {
+            result = result.filter(pro => pro.sector === sectorContext);
+        }
+
+        // 3. Filter by keyword (matches name, specialty, or bio)
+        if (keywordContext) {
+            const kwNorm = keywordContext.toLowerCase().trim();
+            result = result.filter(pro => 
+                pro.name.toLowerCase().includes(kwNorm) ||
+                pro.specialty.toLowerCase().includes(kwNorm) ||
+                pro.bio.toLowerCase().includes(kwNorm)
+            );
+        }
+
+        setFilteredPros(result);
     };
 
     // Initial stream loader hook trigger
     useEffect(() => {
         setActiveSector(initialSector);
-        fetchProfessionalsFromAPI(currentLocation, "", initialSector);
+        filterProfessionals(currentLocation, searchKeyword, initialSector);
     }, [initialSector]);
 
     const handleSearchExecution = ({ location, keyword }) => {
-        setCurrentLocation(location || "Wayne, NE");
-        fetchProfessionalsFromAPI(location, keyword, activeSector);
+        const loc = location || "Wayne, NE";
+        setCurrentLocation(loc);
+        setSearchKeyword(keyword || "");
+        filterProfessionals(loc, keyword || "", activeSector);
     };
 
     const handleSectorFilter = (selectedSector) => {
         setActiveSector(selectedSector);
-        fetchProfessionalsFromAPI(currentLocation, "", selectedSector);
+        filterProfessionals(currentLocation, searchKeyword, selectedSector);
     };
 
     return (
@@ -70,13 +79,9 @@ export default function BrowsePros({ onNavigate, initialSector = "All Sectors" }
                         <FilterDropdown onFilterChange={handleSectorFilter} />
                     </div>
 
-                    {isSearching ? (
-                        <div style={{ padding: '100px 0', textAlign: 'center', color: 'var(--accent-brass)', fontFamily: 'Cinzel', letterSpacing: '2px' }}>
-                            QUERYING STREAM FROM PORT 5000...
-                        </div>
-                    ) : filteredPros.length === 0 ? (
+                    {filteredPros.length === 0 ? (
                         <div style={{ padding: '100px 0', textAlign: 'center', color: 'var(--text-muted)' }}>
-                            No premium entities indexed inside MongoDB matching current parameters.
+                            No premium entities indexed matching current parameters.
                         </div>
                     ) : (
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '25px' }}>
