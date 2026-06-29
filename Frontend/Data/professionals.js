@@ -239,7 +239,7 @@ export const professionals = [
     },
     {
         id: 15,
-        name: "Eden Biophilic Design",
+        name: "Sleek Pool Design",
         rating: 4.9,
         projectsCount: 24,
         specialty: "Luxury Waterfalls, Zen Bridges & Koi Pond Ecosystems",
@@ -255,7 +255,7 @@ export const professionals = [
     },
     {
         id: 16,
-        name: "Sylvan Outdoor Spaces",
+        name: "White Marble Aesthetics",
         rating: 4.7,
         projectsCount: 21,
         specialty: "Minimalist Stone Terraces & Native Forest Pathways",
