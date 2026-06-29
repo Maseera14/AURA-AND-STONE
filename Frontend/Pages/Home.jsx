@@ -12,8 +12,8 @@ export default function Home({ onNavigate }) {
                     Where High-End Architecture Meets Structural Precision.
                 </h1>
 
-                <p style={{ color: 'var(--text-muted)', fontSize: '16px', maxWidth: '650px', margin: '0 auto 50px auto', lineHeight: '1.8' }}>
-                    An elite ecosystem for builders, contractors, and design professionals. Discover verified elite firms and high-end construction executors mapped through advanced telemetry.
+                <p style={{ color: 'var(--text-muted)', fontSize: '16px', maxWidth: '680px', margin: '0 auto 50px auto', lineHeight: '1.8' }}>
+                    A premium architectural destination where visionaries and creators design, co-create, and bring their custom concept plans to life with our elite network of builders and craftsmen.
                 </p>
 
                 <div className="home-hero-buttons" style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
