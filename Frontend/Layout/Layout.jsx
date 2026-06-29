@@ -243,12 +243,6 @@ const Navbar = ({ currentPage, onNavigate, onToggleSidebar, theme, onChangeTheme
                 >
                     Contact Us
                 </span>
-                <button 
-                    onClick={() => { onNavigate && onNavigate('contact'); setMobileMenuOpen(false); }}
-                    className="initiate-stream-btn"
-                >
-                    INITIATE STREAM
-                </button>
             </div>
 
             {/* Right Side Actions: Theme Selector & Hamburger Button */}
