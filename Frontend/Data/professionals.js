@@ -110,7 +110,7 @@ export const professionals = [
         startingBudget: 80000,
         sector: "Sustainable/Green Architecture",
         bio: "Integrating nature directly into corporate and residential layouts, featuring active green rooftops and engineered glue-laminated wood beams.",
-        image: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80",
         gallery: [
             "Laminated Timber Pavilion - Living Roof",
             "Greenhouse Office Expansion - Active Biophilic Filtration"
@@ -247,7 +247,7 @@ export const professionals = [
         startingBudget: 60000,
         sector: "Bespoke Landscape Design",
         bio: "Curating balanced water-gardens, custom bridges, and rock sculptures that flow into the home's primary architectural lines.",
-        image: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80",
         gallery: [
             "Zen Bridge & Koi Pond Installation - Omaha Residence",
             "Natural Slate Waterfall Cascade - Elkhorn Patio"
@@ -263,7 +263,7 @@ export const professionals = [
         startingBudget: 35000,
         sector: "Bespoke Landscape Design",
         bio: "Specialized in xeriscaping and blending modern poured concrete slabs with native forest pathways and custom ambient lighting.",
-        image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80",
         gallery: [
             "Geometric Poured Concrete Deck - Lincoln Villa",
             "Woodland Pathway & Low-Voltage LED Lighting Setup"
