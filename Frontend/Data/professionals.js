@@ -59,7 +59,7 @@ export const professionals = [
         startingBudget: 220000,
         sector: "Residential Megastructures",
         bio: "Pushing the boundaries of gravitational engineering. Specialized in heavy-pour raw concrete villas anchored to steep inclines and cliffsides.",
-        image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80",
         gallery: [
             "The Cliffhanger Villa - Heavy Tension Cables",
             "Brutalist Shore House - Storm Resistant Concrete"
@@ -145,7 +145,7 @@ export const professionals = [
         startingBudget: 500000,
         sector: "Commercial High-Rise",
         bio: "Specialized in high-wind load mitigation technologies, glass skybridges, and composite core steel columns for metropolitan high-rises.",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80",
         gallery: [
             "Titan Skyline Tower - Carbon Composite Columns",
             "Glass Skybridge Nexus - Aerodynamic Wind Dampers"
@@ -161,7 +161,7 @@ export const professionals = [
         startingBudget: 420000,
         sector: "Commercial High-Rise",
         bio: "Engineering custom seismic shock foundations and double-glazed active airflow glass skins for large energy-efficient commercial towers.",
-        image: "https://images.unsplash.com/photo-1542362567-b07eac790931?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1498084393753-b411b2d26b34?auto=format&fit=crop&w=800&q=80",
         gallery: [
             "Double-Skin Energy Tower - Lincoln Center",
             "Deep Pile Shock Foundations - Bellevue Office Complex"
@@ -196,7 +196,7 @@ export const professionals = [
         startingBudget: 175000,
         sector: "Heritage Restoration",
         bio: "Restoring limestone, sandstone, and marble masonry for historic landmarks. Hand-carving columns and structural cathedral vaults to exact historic blueprints.",
-        image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80",
         gallery: [
             "St. Andrews Cathedral Vault Restoration",
             "Sandstone Arch Reconstruction - Old Capitol Gate"
@@ -247,7 +247,7 @@ export const professionals = [
         startingBudget: 60000,
         sector: "Bespoke Landscape Design",
         bio: "Curating balanced water-gardens, custom bridges, and rock sculptures that flow into the home's primary architectural lines.",
-        image: "https://images.unsplash.com/photo-1558603668-6570496b66f8?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80",
         gallery: [
             "Zen Bridge & Koi Pond Installation - Omaha Residence",
             "Natural Slate Waterfall Cascade - Elkhorn Patio"
@@ -263,7 +263,7 @@ export const professionals = [
         startingBudget: 35000,
         sector: "Bespoke Landscape Design",
         bio: "Specialized in xeriscaping and blending modern poured concrete slabs with native forest pathways and custom ambient lighting.",
-        image: "https://images.unsplash.com/photo-1558603668-6570496b66f8?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80",
         gallery: [
             "Geometric Poured Concrete Deck - Lincoln Villa",
             "Woodland Pathway & Low-Voltage LED Lighting Setup"
